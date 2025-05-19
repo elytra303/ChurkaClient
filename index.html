@@ -12,26 +12,47 @@
       color: #ffffff;
       text-align: center;
     }
+    .background-c {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 60vw;
+      color: #8a2be2;
+      opacity: 0.05;
+      font-weight: bold;
+      z-index: 0;
+      user-select: none;
+      pointer-events: none;
+    }
     header {
       padding: 20px;
       background-color: #1a1a1a;
       font-size: 24px;
       font-weight: bold;
       color: #ff00ff;
+      position: relative;
+      z-index: 1;
     }
     .title {
       font-size: 32px;
       font-weight: bold;
       color: #ff00ff;
       margin-top: 60px;
+      position: relative;
+      z-index: 1;
     }
     .subtitle {
       font-size: 20px;
       margin-top: 10px;
       color: #cccccc;
+      position: relative;
+      z-index: 1;
     }
     .buttons {
       margin-top: 30px;
+      position: relative;
+      z-index: 1;
     }
     .btn {
       padding: 15px 30px;
@@ -51,21 +72,90 @@
       border-radius: 10px;
       color: #ffffff;
       font-size: 16px;
+      position: relative;
+      z-index: 1;
+    }
+    .square {
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 30px auto;
+      max-width: 800px;
+      position: relative;
+      z-index: 1;
+    }
+    .footer {
+      margin-top: 50px;
+      font-size: 14px;
+      color: #777;
+      position: relative;
+      z-index: 1;
+    }
+    .links {
+      margin-top: 20px;
+      position: relative;
+      z-index: 1;
+    }
+    .links a {
+      display: block;
+      color: #ff66ff;
+      text-decoration: underline;
+      margin: 8px 0;
+    }
+    .section-title {
+      margin-top: 40px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #ff00ff;
+      position: relative;
+      z-index: 1;
     }
   </style>
 </head>
 <body>
+  <div class="background-c">C</div>
+
   <header>ChurkaClient</header>
 
   <div class="title">Лучший лаунчер для комфортной игры в Minecraft</div>
   <div class="subtitle">Наслаждайтесь игрой без лагов и с дополнительными функциями</div>
 
   <div class="buttons">
-    <a href="https://ify.ac/1YpV" class="btn">Скачать клиент, закидывать в вершионс</a>
+    <a href="https://ify.ac/1YpV" class="btn">Скачать лучший клиент!</a>
   </div>
 
-  <div class="notice">
-    ЭТО НЕ ОФИЦИАЛЬНЫЙ САЙТ!!! Если вы не доверяете, то скачайте в тг <a href="https://t.me/ChurkaClient" style="color:#ff66ff; text-decoration: underline;">https://t.me/ChurkaClient</a>
+  <div class="notice">мб овнер одобрит, хз</div>
+
+  <div class="square">
+    <p>Churka client - лучшее бесплатное ПО для майнкрафта, Aura, KexAura, TriggerBot - все это работает! И ждёт вас в Churka client! Скачивайте Churka client и наслаждайтесь игровым процессом.</p>
+  </div>
+
+  <div class="square">
+    <p>Обходы на grim, matrix и многие другие античиты! Лучшая оптимизация для всех пк/ноутбуков! С этим читом вы можете пенить все сервера!</p>
+  </div>
+
+  <div class="footer">
+    <div>2025 Churka Product</div>
+
+    <div class="section-title">Соц сети</div>
+    <div class="links">
+      <a href="https://discord.com/invite/uSpv6CkZQW">Дискорд</a>
+      <a href="https://vk.com/xsk1llz">Вконтакте</a>
+      <a href="https://t.me/ChurkaClient">Телеграм</a>
+    </div>
+
+    <div class="section-title">Ютуберы</div>
+    <div class="links">
+      <a href="https://www.youtube.com/@frizerhvh">FrizerHvH</a>
+    </div>
+
+    <div class="section-title">Создатель</div>
+    <div class="links">
+      <div>XsK1LLz</div>
+      <div>Дискорд: xsk1llz</div>
+      <a href="https://t.me/xsk1llz">Телеграм: XsK1LLz</a>
+      <a href="https://vk.com/xsk1llz">Вконтакте: XsK1LLz</a>
+    </div>
   </div>
 </body>
 </html>
