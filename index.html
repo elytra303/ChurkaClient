@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ChurkaClient</title>
   <style>
     body {
@@ -11,6 +11,7 @@
       background-color: #0d0d0d;
       color: #ffffff;
       text-align: center;
+      padding-bottom: 80px; /* Добавлен отступ снизу для прокрутки */
     }
     .background-c {
       position: fixed;
@@ -24,6 +25,10 @@
       z-index: 0;
       user-select: none;
       pointer-events: none;
+      text-shadow:
+        0 0 10px #8a2be2,
+        0 0 20px #8a2be2,
+        0 0 30px #8a2be2;
     }
     header {
       padding: 20px;
@@ -33,6 +38,9 @@
       color: #ff00ff;
       position: relative;
       z-index: 1;
+      text-shadow:
+        0 0 5px #ff00ff,
+        0 0 10px #ff00ff;
     }
     .title {
       font-size: 32px;
@@ -41,6 +49,9 @@
       margin-top: 60px;
       position: relative;
       z-index: 1;
+      text-shadow:
+        0 0 5px #ff00ff,
+        0 0 10px #ff00ff;
     }
     .subtitle {
       font-size: 20px;
@@ -48,6 +59,8 @@
       color: #cccccc;
       position: relative;
       z-index: 1;
+      text-shadow:
+        0 0 3px #ff99ff;
     }
     .buttons {
       margin-top: 30px;
@@ -63,6 +76,16 @@
       color: #fff;
       cursor: pointer;
       text-decoration: none;
+      display: inline-block;
+      box-shadow:
+        0 0 8px #a000f0,
+        0 0 15px #ff00c8;
+      transition: box-shadow 0.3s ease;
+    }
+    .btn:hover {
+      box-shadow:
+        0 0 12px #a000f0,
+        0 0 25px #ff00c8;
     }
     .notice {
       margin: 40px auto;
@@ -74,6 +97,9 @@
       font-size: 16px;
       position: relative;
       z-index: 1;
+      box-shadow:
+        0 0 10px #a000f0aa;
+      text-shadow: 0 0 3px #ff66ff;
     }
     .square {
       background-color: #1a1a1a;
@@ -83,6 +109,11 @@
       max-width: 800px;
       position: relative;
       z-index: 1;
+      text-align: left;
+      box-shadow:
+        0 0 15px #a000f0cc;
+      color: #ddd;
+      text-shadow: 0 0 4px #ff66ffaa;
     }
     .footer {
       margin-top: 50px;
@@ -90,25 +121,88 @@
       color: #777;
       position: relative;
       z-index: 1;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 15px;
     }
-    .links {
-      margin-top: 20px;
+    .footer > div:first-child {
+      font-size: 18px;
+      color: #cc99ff;
+      margin-bottom: 10px;
+      font-weight: 600;
+      text-shadow:
+        0 0 8px #a000f0cc,
+        0 0 15px #ff00ffbb;
+      letter-spacing: 1.2px;
       position: relative;
-      z-index: 1;
+      top: -15px;
     }
-    .links a {
-      display: block;
-      color: #ff66ff;
-      text-decoration: underline;
-      margin: 8px 0;
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+      text-align: left;
+      color: #fff;
+    }
+    .column {
+      flex: 1 1 250px;
+      min-width: 220px;
     }
     .section-title {
-      margin-top: 40px;
       font-size: 18px;
       font-weight: bold;
       color: #ff00ff;
-      position: relative;
-      z-index: 1;
+      margin-bottom: 10px;
+      text-shadow:
+        0 0 5px #ff00ff,
+        0 0 10px #ff66ff;
+    }
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    /* Квадраты вокруг каждого пункта */
+    .links > * {
+      background-color: #1a1a1a;
+      border: 2px solid #a000f0;
+      border-radius: 8px;
+      padding: 6px 12px;
+      box-shadow:
+        0 0 8px #a000f0,
+        0 0 15px #ff00c8;
+      transition: box-shadow 0.3s ease, border-color 0.3s ease;
+      color: #ff66ff !important;
+      text-shadow: 0 0 4px #ff99ff;
+    }
+    /* Для div внутри links, которые не ссылки, цвет чуть светлее и без underline */
+    .links > div {
+      color: #ccc !important;
+      text-shadow: 0 0 3px #bb77cc;
+      border-color: #7700aa;
+      box-shadow:
+        0 0 6px #7700aa,
+        0 0 12px #aa00cc;
+    }
+    /* При наведении на ссылки меняем цвет и светимость */
+    .links > a:hover {
+      color: #ffaaff !important;
+      border-color: #ff33ff;
+      box-shadow:
+        0 0 12px #ff33ff,
+        0 0 25px #ff99ff;
+    }
+
+    /* Адаптив */
+    @media (max-width: 700px) {
+      .footer-top {
+        flex-direction: column;
+      }
+      .column {
+        min-width: 100%;
+      }
     }
   </style>
 </head>
@@ -137,25 +231,27 @@
   <div class="footer">
     <div>2025 Churka Product</div>
 
-    <div class="section-title">Соц сети</div>
-    <div class="links">
-      <a href="https://discord.com/invite/uSpv6CkZQW">Дискорд</a>
-      <a href="https://vk.com/xsk1llz">Вконтакте</a>
-      <a href="https://t.me/ChurkaClient">Телеграм</a>
-    </div>
-
-    <div class="section-title">Ютуберы</div>
-    <div class="links">
-      <a href="https://www.youtube.com/@frizerhvh">FrizerHvH</a>
-    </div>
-
-    <div class="section-title">Создатель</div>
-    <div class="links">
-      <div>XsK1LLz</div>
-      <div>Дискорд: xsk1llz</div>
-      <a href="https://t.me/xsk1llz">Телеграм: XsK1LLz</a>
-      <a href="https://vk.com/xsk1llz">Вконтакте: XsK1LLz</a>
-    </div>
-  </div>
-</body>
-</html>
+    <div class="footer-top">
+      <div class="column">
+        <div class="section-title">Соц сети</div>
+        <div class="links">
+          <a href="https://discord.com/invite/uSpv6CkZQW" target="_blank" rel="noopener noreferrer">Дискорд</a>
+          <a href="https://vk.com/xsk1llz" target="_blank" rel="noopener noreferrer">Вконтакте</a>
+          <a href="https://t.me/ChurkaClient" target="_blank" rel="noopener noreferrer">Телеграм</a>
+        </div>
+      </div>
+      <div class="column">
+        <div class="section-title">Ютуберы</div>
+        <div class="links">
+          <a href="https://www.youtube.com/@frizerhvh" target="_blank" rel="noopener noreferrer">FrizerHvH</a>
+          <div>неизвестно</div>
+          <div>неизвестно</div>
+          <div>неизвестно</div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="section-title">Создатель</div>
+        <div class="links">
+          <div>XsK1LLz</div>
+          <div>Дискорд: xsk1llz</div>
+          <a href="https://t.me/xsk1llz" target="_blank" rel="noopener noreferrer">Телеграм: XsK1LLz</
